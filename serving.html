@@ -80,9 +80,8 @@ function reducePlaySpeed() {
 <br><br><br>
 <h3> Idea 2: using the slidebar UI</h3>
 <div class="slidecontainer">
-  <p>Value: <span id="demo"></span></p>  
-  <input type="range" min="-99" max="100" value="1" class="slider" id="myRange">
-
+  <p>playback speed: <span id="demo"></span></p>
+  <input type="range" min="-99" max="100" value="1" class="slider" id="myRange" style="margin: 0; width: 400px;">
 </div>
 
   <video id="JS-2" width="400" controls>
@@ -104,7 +103,7 @@ slider.oninput = function() {
   else{
     vid2.playbackRate = Math.exp((this.value-1)/100.0);
   }
-  output.innerHTML = vid2.playbackRate;
+  output.innerHTML = vid2.playbackRate.toFixed(2);
 }
 </script>  
 
