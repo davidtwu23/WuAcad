@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Serving</title>
+    <link href="style_2.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<ul id = "navUl">
+      <li id = "navli"> <a href = "index.html">Home</a></li>
+      <li id = "navli"> <a href = "pass.html">Passing</a></li>
+      <li id = "navli"> <a href = "defense.html">Defense</a></li>
+      <li id = "navli"> <a href = "serving.html">Serving</a></li>
+      <li id = "navli"> <a href = "offense.html">Offense</a></li>
+      <li id = "navli"> <a href = "tactics.html">Tactics</a></li>
+    </ul>
+
+
+    <script src="script.js"></script>
+    <h1>Serving</h1>
+
+    <h3 id="Float_Serve"> Float Serve</h3>
+ <p> The definition of float serve: :</p>
+    <ol class="customIndent">
+<li>the ball is not rotating</li>
+<li>the ball trajectory is unpredictable</li>
+      </ol>
+
+    <p> How to make a good float serve?</p>
+      <ol class="customIndent">
+<li>Key-1: hit the ball straight</li>
+<li>Key-2: hit the ball very quickly</li>
+<li>Key-3: </li>
+<li>Key-4: </li>
+</ol></p>
+
+    
+    <h3 id="Jump_Serve"> Jump Serve</h3>
+ <p> The definition of jump serve: :</p>
+    <ol class="customIndent">
+<li>serve the ball with a jump like spiking</li>
+<li>powerful and quick</li>
+      </ol>
+
+    <p> How to make a good jump serve?</p>
+      <ol class="customIndent">
+<li>Key-1: assisant running</li>
+<li>Key-2: jumping</li>
+<li>Key-3: timing for hitting</li>
+<li>Key-4: wrist shape</li>
+</ol></p>
+    
+ <p> The following is a good jump serve</p>   
+<button onclick="fastPlaySpeed()" type="button">X 1.5</button>
+ <button onclick="resetPlaySpeed()" type="button">Normal</button>   
+<button onclick="reducePlaySpeed()" type="button">X 0.75</button><br> 
+
+    
+  <video id="JS-1" width="400" controls>
+  <source src="IMG_1615.mov" type="video/webm">
+</video> 
+<script>
+var vid = document.getElementById("JS-1");
+
+function fastPlaySpeed() { 
+  vid.playbackRate *= 1.5;
+} 
+function resetPlaySpeed(){
+  vid.playbackRate = 1.0;
+}
+  
+function reducePlaySpeed() { 
+  vid.playbackRate *= 0.75;
+} 
+</script>
+    
+  </body>
+</html>
