@@ -51,7 +51,8 @@
 <li>Key-3: timing for hitting</li>
 <li>Key-4: wrist shape</li>
 </ol></p>
-    
+
+ <h3> Idea 1: using the botton UI</h3>   
  <p> The following is a good jump serve</p>   
 <button onclick="fastPlaySpeed()" type="button">X 1.5</button>
  <button onclick="resetPlaySpeed()" type="button">Normal</button>   
@@ -75,6 +76,38 @@ function reducePlaySpeed() {
   vid.playbackRate *= 0.75;
 } 
 </script>
+
+<br><br><br>
+<h3> Idea 2: using the slidebar UI</h3>
+<div class="slidecontainer">
+  <p>Value: <span id="demo"></span></p>  
+  <input type="range" min="-99" max="100" value="1" class="slider" id="myRange">
+
+</div>
+
+  <video id="JS-2" width="400" controls>
+  <source src="IMG_1615.mov" type="video/webm">
+</video> 
+    
+<script>
+var vid2 = document.getElementById("JS-2");
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  //output.innerHTML = this.value;
+  if (this.value >= 1){
+    vid2.playbackRate = 1.0 + this.value/100.0;
+  }
+  else{
+    vid2.playbackRate = Math.exp((this.value-1)/100.0);
+  }
+  output.innerHTML = vid2.playbackRate;
+}
+</script>  
+
     
   </body>
 </html>
