@@ -1,112 +1,168 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Serving</title>
-    <link href="style_2.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
 
-<ul id = "navUl">
-      <li id = "navli"> <a href = "index.html">Home</a></li>
-      <li id = "navli"> <a href = "pass.html">Passing</a></li>
-      <li id = "navli"> <a href = "defense.html">Defense</a></li>
-      <li id = "navli"> <a href = "serving.html">Serving</a></li>
-      <li id = "navli"> <a href = "offense.html">Offense</a></li>
-      <li id = "navli"> <a href = "tactics.html">Tactics</a></li>
-    </ul>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Serving</title>
+  <link href="style_2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <ul id="navUl">
+    <li id="navli"> <a href="index.html">Home</a></li>
+    <li id="navli"> <a href="pass.html">Passing</a></li>
+    <li id="navli"> <a href="defense.html">Defense</a></li>
+    <li id="navli"> <a href="serving.html">Serving</a></li>
+    <li id="navli"> <a href="offense.html">Offense</a></li>
+    <li id="navli"> <a href="tactics.html">Tactics</a></li>
+  </ul>
 
 
-    <script src="script.js"></script>
-    <h1>Serving</h1>
+  <script src="script.js"></script>
+  <h1>Serving</h1>
 
-    <h3 id="Float_Serve"> Float Serve</h3>
- <p> The definition of float serve: :</p>
-    <ol class="customIndent">
-<li>the ball is not rotating</li>
-<li>the ball trajectory is unpredictable</li>
-      </ol>
+  <h3 id="Float_Serve"> Float Serve</h3>
+  <p> The definition of float serve: :</p>
+  <ol class="customIndent">
+    <li>the ball is not rotating</li>
+    <li>the ball trajectory is unpredictable</li>
+  </ol>
 
-    <p> How to make a good float serve?</p>
-      <ol class="customIndent">
-<li>Key-1: hit the ball straight</li>
-<li>Key-2: hit the ball very quickly</li>
-<li>Key-3: </li>
-<li>Key-4: </li>
-</ol></p>
+  <p> How to make a good float serve?</p>
+  <ol class="customIndent">
+    <li>Key-1: hit the ball straight</li>
+    <li>Key-2: hit the ball very quickly</li>
+    <li>Key-3: </li>
+    <li>Key-4: </li>
+  </ol>
+  </p>
 
-    
-    <h3 id="Jump_Serve"> Jump Serve</h3>
- <p> The definition of jump serve: :</p>
-    <ol class="customIndent">
-<li>serve the ball with a jump like spiking</li>
-<li>powerful and quick</li>
-      </ol>
 
-    <p> How to make a good jump serve?</p>
-      <ol class="customIndent">
-<li>Key-1: assisant running</li>
-<li>Key-2: jumping</li>
-<li>Key-3: timing for hitting</li>
-<li>Key-4: wrist shape</li>
-</ol></p>
+  <h3 id="Jump_Serve"> Jump Serve</h3>
+  <p> The definition of jump serve: :</p>
+  <ol class="customIndent">
+    <li>serve the ball with a jump like spiking</li>
+    <li>powerful and quick</li>
+  </ol>
 
- <h3> Idea 1: using the botton UI</h3>   
- <p> The following is a good jump serve</p>   
-<button onclick="fastPlaySpeed()" type="button">X 1.5</button>
- <button onclick="resetPlaySpeed()" type="button">Normal</button>   
-<button onclick="reducePlaySpeed()" type="button">X 0.75</button><br> 
+  <p> How to make a good jump serve?</p>
+  <ol class="customIndent">
+    <li>Key-1: assisant running</li>
+    <li>Key-2: jumping</li>
+    <li>Key-3: timing for hitting</li>
+    <li>Key-4: wrist shape</li>
+  </ol>
+  </p>
 
-    
+  <h3> Idea 1: using the botton UI</h3>
+  <p> The following is a good jump serve</p>
+  <button onclick="fastPlaySpeed()" type="button">X 1.5</button>
+  <button onclick="resetPlaySpeed()" type="button">Normal</button>
+  <button onclick="reducePlaySpeed()" type="button">X 0.75</button><br>
+
+
   <video id="JS-1" width="400" controls>
-  <source src="IMG_1615.mov" type="video/webm">
-</video> 
-<script>
-var vid = document.getElementById("JS-1");
+    <source src="IMG_1615.mov" type="video/webm">
+  </video>
+  <script>
+    var vid = document.getElementById("JS-1");
 
-function fastPlaySpeed() { 
-  vid.playbackRate *= 1.5;
-} 
-function resetPlaySpeed(){
-  vid.playbackRate = 1.0;
-}
-  
-function reducePlaySpeed() { 
-  vid.playbackRate *= 0.75;
-} 
-</script>
+    function fastPlaySpeed() {
+      vid.playbackRate *= 1.5;
+    }
+    function resetPlaySpeed() {
+      vid.playbackRate = 1.0;
+    }
 
-<br><br><br>
-<h3> Idea 2: using the slidebar UI</h3>
-<div class="slidecontainer">
-  <p>playback speed: <span id="demo"></span></p>
-  <input type="range" min="-99" max="100" value="1" class="slider" id="myRange" style="margin: 0; width: 400px;">
-</div>
+    function reducePlaySpeed() {
+      vid.playbackRate *= 0.75;
+    }
+  </script>
+
+  <br><br><br>
+  <h3> Idea 2: using the slidebar UI</h3>
+  <div class="slidecontainer">
+    <p>playback speed: <span id="demo"></span></p>
+    <input type="range" min="-99" max="100" value="1" class="slider" id="myRange" style="margin: 0; width: 400px;">
+  </div>
 
   <video id="JS-2" width="400" controls>
-  <source src="IMG_1615.mov" type="video/webm">
-</video> 
-    
-<script>
-var vid2 = document.getElementById("JS-2");
+    <source src="IMG_1615.mov" type="video/webm">
+  </video>
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
+  <script>
+    var vid2 = document.getElementById("JS-2");
 
-slider.oninput = function() {
-  //output.innerHTML = this.value;
-  if (this.value >= 1){
-    vid2.playbackRate = 1.0 + this.value/100.0;
-  }
-  else{
-    vid2.playbackRate = Math.exp((this.value-1)/100.0);
-  }
-  output.innerHTML = vid2.playbackRate.toFixed(2);
-}
-</script>  
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
 
-    
-  </body>
+    slider.oninput = function () {
+      //output.innerHTML = this.value;
+      if (this.value >= 1) {
+        vid2.playbackRate = 1.0 + this.value / 100.0;
+      }
+      else {
+        vid2.playbackRate = Math.exp((this.value - 1) / 100.0);
+      }
+      output.innerHTML = vid2.playbackRate.toFixed(2);
+    }
+  </script>
+
+  <br><br><br>
+  <h3> Idea 3: Playing multiple videos at the same place using dropdown menu for video source selection. </h3>
+  <div class="slidecontainer">
+    <p>playback speed: <span id="demo_3"></span></p>
+    <input type="range" min="-99" max="100" value="1" class="slider" id="myRange_3" style="margin: 0; width: 400px;">
+  </div>
+
+  <video id="JS-3" width="400" controls>
+    <source src="IMG_1615.mov" type="video/webm">
+  </video>
+<p></p>
+  <label for="JS-names">Choose a jump serve example: </label>
+  <select name="JS-names" id="JS-names" onChange="update()">
+    <option value="IMG_1615.mov">Example 1</option>
+    <option value="IMG_3506.MOV">Example 2</option>
+  </select>
+
+  <script>
+    var vid3 = document.getElementById("JS-3");
+    //vid3.src = "IMG_3506.MOV";
+    //vid3.play();
+
+    var slider = document.getElementById("myRange_3");
+    var output = document.getElementById("demo_3");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      //output.innerHTML = this.value;
+      if (this.value >= 1) {
+        vid3.playbackRate = 1.0 + this.value / 100.0;
+      }
+      else {
+        vid3.playbackRate = Math.exp((this.value - 1) / 100.0);
+      }
+      output.innerHTML = vid3.playbackRate.toFixed(2);
+    }
+
+
+    function update() {
+      var vid3 = document.getElementById("JS-3");
+      var vnames = document.getElementById("JS-names");
+      vid3.src = vnames.options[vnames.selectedIndex].value;
+      vid3.playbackRate = 1.0;
+      var slider = document.getElementById("myRange_3");
+      slider.vaule = 1;
+      var output = document.getElementById("demo_3");
+      output.innerHTML = vid3.src;
+      //output.innerHTML = slider.value;
+    }
+
+
+  </script>
+</body>
+
 </html>
