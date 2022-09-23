@@ -27,6 +27,64 @@
 
   
   <h3 id="Jump_Serve"> Jump Serve</h3>
+  <p> method 1:using an animated GIF image</p>
+<img src="data/images/jump-serve-1.gif" alt="Jump Serve" style="width:600px;height:340px;">
+
+
+  <p> method 2: showing animated image sequence, mouse moveover event to stop, mouse leave to resume</p>
+<body onload = 'imagechange();'>
+<img onmouseover="stop()" onmouseleave="imagechange()" id="JS-anim" align = "center" src="data/images/jump-serve-1/1.jpg" style="width:600px;height:340px;">
+<button onclick="stop()">Stop animation</button>  
+
+<p> method 3: showing animated image sequence, mouse click to toggle stop and resume</p>
+<body onload = 'imagechange();'>
+<img onclick="toggle()" id="JS-anim-2" align = "center" src="data/images/jump-serve-1/1.jpg" style="width:600px;height:340px;">
+  
+ <script>
+  var images = [ "1","2","3","4","5","6","7","8","9","10","11","12"];
+//call this function first
+var myInterval;
+function imagechange()
+{
+ // starts a timer. it uses 1000ms 
+  myInterval = setInterval("animate()",1000);
+}
+
+function stop()
+{
+  clearInterval(myInterval);    
+}
+   
+var k=0;
+function animate()
+{
+  if(k>=images.length){
+    k=0;
+  }
+  if(k>=0){
+    document.getElementById("JS-anim").src="data/images/jump-serve-1/"+images[k] +".jpg";
+    document.getElementById("JS-anim-2").src="data/images/jump-serve-1/"+images[k] +".jpg";
+    k ++;
+  }
+}
+
+
+var flag=0;
+function toggle()
+{
+  if (flag==0){
+    flag = 1;
+    stop();
+  }
+  else{
+    flag = 0;
+    imagechange();
+  }
+}
+ 
+   
+ </script>
+  
   <p> The definition of jump serve: :</p>
   <ol class="customIndent">
     <li>serve the ball with a jump like spiking</li>
@@ -50,7 +108,7 @@
 
 
   <video id="JS-1" width="400" controls>
-    <source src="data/videos/IMG_1615.mov" type="video/webm">
+    <source src="data/videos/IMG_1615.mp4" type="video/mp4">
   </video>
   <script>
     var vid = document.getElementById("JS-1");
@@ -75,7 +133,7 @@
   </div>
 
   <video id="JS-2" width="400" controls>
-    <source src="data/videos/IMG_1615.mov" type="video/webm">
+    <source src="data/videos/IMG_1615.mp4" type="video/mp4">
   </video>
 
   <script>
@@ -118,18 +176,18 @@
   </div>
 
   <video id="JS-3" width="400" controls>
-    <source src="data/videos/IMG_1615.mov" type="video/webm">
+    <source src="data/videos/IMG_1615.mp4" type="video/mp4">
   </video>
 <p></p>
   <label for="JS-names">Choose a jump serve example: </label>
   <select name="JS-names" id="JS-names" onChange="update()">
-    <option value="data/videos/IMG_1615.mov">Example 1</option>
-    <option value="data/videos/IMG_3506.MOV">Example 2</option>
+    <option value="data/videos/IMG_1615.mp4">Example 1</option>
+    <option value="data/videos/IMG_3506.mp4">Example 2</option>
   </select>
 
   <script>
     var vid3 = document.getElementById("JS-3");
-    //vid3.src = "data/videos/IMG_3506.MOV";
+    //vid3.src = "data/videos/IMG_3506.mp4";
     //vid3.play();
 
     var slider = document.getElementById("myRange_3");

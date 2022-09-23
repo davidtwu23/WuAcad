@@ -12,8 +12,9 @@ p,ul,ol {
 }
 
 img {
-  width:30%;
-  height:20%;
+  width:50%;
+  height:50%;
+  /*height:20%;*/
 }
 
 ol {
