@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Serving</title>
+  <link href="style_2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <ul id="navUl">
+    <li id="navli"> <a href="index.html">Home</a></li>
+    <li id="navli"> <a href="pass.html">Passing</a></li>
+    <li id="navli"> <a href="defense.html">Defense</a></li>
+    <li id="navli"> <a href="serving.html">Serving</a></li>
+    <li id="navli"> <a href="offense.html">Offense</a></li>
+    <li id="navli"> <a href="tactics.html">Tactics</a></li>
+    <li id = "navli"> <a href ="testing.html">(_Testing_)</a></li>
+  </ul>
+
+
+  <script src="script.js"></script>
+  <h1>Serving</h1>
+
+  <h3 id="Float_Serve"> Float Serve</h3>
+  <p> The definition of float serve: :</p>
+  <ol class="customIndent">
+    <li>the ball is not rotating</li>
+    <li>the ball trajectory is unpredictable</li>
+  </ol>
+
+  <p> How to make a good float serve?</p>
+  <ol class="customIndent">
+    <li>Key-1: hit the ball straight</li>
+    <li>Key-2: hit the ball very quickly</li>
+    <li>Key-3: </li>
+    <li>Key-4: </li>
+  </ol>
+  </p>
+
+
+  <h3 id="Jump_Serve"> Jump Serve</h3>
+  <body onload = 'imagechange();'>
+<img onclick="toggle()" id="JS-anim" align = "center" src="data/images/jump-serve-1/1.jpg" style="width:600px;height:340px;">
+  <p>[click on the image to stop/resume the animation]</p>
+
+<script>
+  var images = [ "1","2","3","4","5","6","7","8","9","10","11","12"];
+//call this function first
+var myInterval;
+function imagechange()
+{
+ // starts a timer. it uses 1000ms 
+  myInterval = setInterval("animate()",1000);
+}
+
+function stop()
+{
+  clearInterval(myInterval);    
+}
+   
+var k=0;
+function animate()
+{
+  if(k>=images.length){
+    k=0;
+  }
+  if(k>=0){
+    document.getElementById("JS-anim").src="data/images/jump-serve-1/"+images[k] +".jpg";
+    k ++;
+  }
+}
+
+
+var flag=0;
+function toggle()
+{
+  if (flag==0){
+    flag = 1;
+    stop();
+  }
+  else{
+    flag = 0;
+    imagechange();
+  }
+}
+   
+ </script>
+
+  
+  <p> The definition of jump serve: :</p>
+  <ol class="customIndent">
+    <li>serve the ball with a jump like spiking</li>
+    <li>powerful and quick</li>
+  </ol>
+
+  <p> How to make a good jump serve?</p>
+  <ol class="customIndent">
+    <li>Key-1: assisant running</li>
+    <li>Key-2: jumping</li>
+    <li>Key-3: timing for hitting</li>
+    <li>Key-4: wrist shape</li>
+  </ol>
+  </p>
+
+
+  <h3> Good Examples </h3>
+  <div class="slidecontainer">
+    <p>playback speed: <span id="demo"></span></p>
+    <input type="range" min="-99" max="100" value="1" class="slider" id="myRange" style="margin: 0; width: 400px;">
+  </div>
+
+  <video id="JS" width="400" controls>
+    <source src="data/videos/IMG_1615.mp4" type="video/mp4">
+  </video>
+<p></p>
+  <label for="JS-names">Choose a jump serve example: </label>
+  <select name="JS-names" id="JS-names" onChange="update()">
+    <option value="data/videos/IMG_1615.mp4">Example 1</option>
+    <option value="data/videos/IMG_3506.mp4">Example 2</option>
+  </select>
+
+  <script>
+    var vid = document.getElementById("JS");
+    //vid3.src = "IMG_3506.MOV";
+    //vid3.play();
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      if (this.value >= 1) {
+        vid.playbackRate = 1.0 + this.value / 100.0;
+      }
+      else {
+        vid.playbackRate = Math.exp((this.value - 1) / 100.0);
+      }
+      output.innerHTML = vid.playbackRate.toFixed(2);
+    }
+
+
+    function update() {
+      var vid = document.getElementById("JS");
+      var vnames = document.getElementById("JS-names");
+      vid.src = vnames.options[vnames.selectedIndex].value;
+      vid.playbackRate = 1.0;
+      var slider = document.getElementById("myRange");
+      slider.value = 1;
+      var output = document.getElementById("demo");
+      //output.innerHTML = vid.src;
+      output.innerHTML = slider.value;
+    }
+
+
+  </script>
+</body>
+
+</html>
