@@ -88,38 +88,13 @@
 
   <script>
     var vid = document.getElementById("JS");
-    //vid3.src = "IMG_3506.MOV";
-    //vid3.play();
-
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
-    output.innerHTML = slider.value;
-
-    slider.oninput = function () {
-      if (this.value >= 1) {
-        vid.playbackRate = 1.0 + this.value / 100.0;
-      }
-      else {
-        vid.playbackRate = Math.exp((this.value - 1) / 100.0);
-      }
-      output.innerHTML = vid.playbackRate.toFixed(2);
-    }
-
-
-    function update() {
-      var vid = document.getElementById("JS");
-      var vnames = document.getElementById("JS-names");
-      vid.src = vnames.options[vnames.selectedIndex].value;
-      vid.playbackRate = 1.0;
-      var slider = document.getElementById("myRange");
-      slider.value = 1;
-      var output = document.getElementById("demo");
-      //output.innerHTML = vid.src;
-      output.innerHTML = slider.value;
-    }
-
-
+    var vnames = document.getElementById("JS-names");
   </script>
+<script src="/interactive_video_playback.js"></script>
+
+    
 </body>
 
 </html>
