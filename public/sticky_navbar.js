@@ -4,6 +4,11 @@
 window.onscroll = function() {myFunction()};
 
 var navbar = document.getElementById("navbar");
+
+if(navbar==null){
+  navbar = document.getElementById("navbar-search");
+}
+
 var sticky = navbar.offsetTop;
 
 function myFunction() {
