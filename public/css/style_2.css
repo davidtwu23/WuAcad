@@ -14,7 +14,8 @@ h1,h2,h3 {
   text-align:center;
   margin: 1em 1em 1em 1em;
   padding: 5px;
-  background-color: #02de62;
+  //background-color: #02de62;
+  background-color: #92cef2;
 }
 
 p,ul,ol {
