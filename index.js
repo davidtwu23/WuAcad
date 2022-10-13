@@ -3,6 +3,13 @@ const app = express();
 const router = express.Router();
 const path = require('path')//Include the Path module
 
+const php = require('php')
+// setup php templating engine
+app.set('views', path.join(__dirname, 'templates'))
+app.set('view engine', 'php')
+app.engine('php', php.__express)
+
+
 // enable css styles
 app.use(express.static('public'));
 
@@ -46,6 +53,20 @@ router.get('/testing', function(req, res){
   res.sendFile(path.join(__dirname, '/testing.html'));
 });
 app.use('/testing', router);
+
+app.get('/action', function(req, res){
+  response = {
+    first_name:req.query.fname,
+    last_name:req.query.lname
+  };
+  console.log(response);
+
+  res.sendFile(path.join(__dirname, '/action.html'));
+});
+
+
+
+
 
 
 //404 Error
