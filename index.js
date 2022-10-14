@@ -14,24 +14,24 @@ app.engine('php', php.__express)
 app.use(express.static('public'));
 
 //Set up the Express router
-router.get('/', function(req, res){
+router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
 app.use('/', router);
 
 //Navigate your website
-router.get('/serving', function(req, res){
+router.get('/serving', function(req, res) {
   res.sendFile(path.join(__dirname, '/serving.html'));
 });
 app.use('/serving', router);
 
 
-router.get('/defense', function(req, res){
+router.get('/defense', function(req, res) {
   res.sendFile(path.join(__dirname, '/defense.html'));
 });
 app.use('/defense', router);
 
-router.get('/passing', function(req, res){
+router.get('/passing', function(req, res) {
   res.sendFile(path.join(__dirname, '/passing.html'));
 });
 app.use('/passing', router);
@@ -49,15 +49,17 @@ router.get('/offense', function(req, res){
 app.use('/offense', router);
 */
 
-router.get('/testing', function(req, res){
+router.get('/testing', function(req, res) {
   res.sendFile(path.join(__dirname, '/testing.html'));
 });
 app.use('/testing', router);
 
-app.get('/action', function(req, res){
+app.get('/action_page.php', function(req, res) {
   response = {
-    first_name:req.query.fname,
-    last_name:req.query.lname
+    first_name: req.query.fname,
+    last_name: req.query.lname,
+    email: req.query.email,
+    comment: req.query.comment
   };
   console.log(response);
 
@@ -66,17 +68,14 @@ app.get('/action', function(req, res){
 
 
 
-
-
-
 //404 Error
 app.use(function(req, res, next) {
-    res.status(404);
-    res.sendFile(__dirname + '/404.html');
+  res.status(404);
+  res.sendFile(__dirname + '/404.html');
 });
 
 
 //set up the Express server to listen on port 3000 and logs some messages when the server is ready
-let server = app.listen(3000, function(){
+let server = app.listen(3000, function() {
   console.log("App server is running on port 3000");
 });

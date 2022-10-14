@@ -10,6 +10,12 @@
 <?php
 echo "My first PHP script!";
 echo $_GET["fname"];
+
+ob_start();
+echo "My first PHP script!";
+file_put_contents('action-1.html',ob_get_contents());
+ob_end_flush();
+
 ?>
   
 </body>
