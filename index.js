@@ -94,6 +94,7 @@ let server = app.listen(3000, function() {
 
 
 // XLSX.writeFile generates corrupted .xlsx file!
+// let's address this issue later, not now
  function JSON2Excel(data_json) {
   const workSheetName = 'Comments';
   const filePath = './comments.xlsx';
