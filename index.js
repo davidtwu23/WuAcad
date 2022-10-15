@@ -1,3 +1,6 @@
+const fs = require('fs');
+const XLSX = require('xlsx');
+
 const express = require('express');//Set up the express module
 const app = express();
 const router = express.Router();
@@ -54,6 +57,8 @@ router.get('/testing', function(req, res) {
 });
 app.use('/testing', router);
 
+
+
 app.get('/action_page.php', function(req, res) {
   response = {
     first_name: req.query.fname,
@@ -62,10 +67,17 @@ app.get('/action_page.php', function(req, res) {
     comment: req.query.comment
   };
   console.log(response);
-
+  data = JSON.stringify(response);
+  //console.log(data);
+  fs.appendFile('comments.json',data, err => {
+    if (err){
+      throw err
+    }
+    console.log('JSON data is appended.')
+  })
+  //JSON2Excel([data]); // XLXS genertes corrupted file
   res.sendFile(path.join(__dirname, '/action.html'));
 });
-
 
 
 //404 Error
@@ -79,3 +91,22 @@ app.use(function(req, res, next) {
 let server = app.listen(3000, function() {
   console.log("App server is running on port 3000");
 });
+
+
+// XLSX.writeFile generates corrupted .xlsx file!
+ function JSON2Excel(data_json) {
+  const workSheetName = 'Comments';
+  const filePath = './comments.xlsx';
+  const workSheetColumnName = [
+    "First Name",
+    "Last Name",
+    "Email",
+    "Comments"
+  ] ;
+   // create a new workbook
+  const workBook = XLSX.utils.book_new(); 
+  const workSheet = XLSX.utils.json_to_sheet(data_json);
+  XLSX.utils.book_append_sheet(workBook, workSheet, workSheetName);
+  XLSX.writeFile(workBook, path.resolve(filePath));
+  return true;
+}
