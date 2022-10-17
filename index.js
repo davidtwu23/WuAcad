@@ -39,13 +39,12 @@ router.get('/passing', function(req, res) {
 });
 app.use('/passing', router);
 
-/*
-router.get('/tactics', function(req, res){
-  res.sendFile(path.join(__dirname, '/tactics.html'));
+router.get('/contact', function(req, res){
+  res.sendFile(path.join(__dirname, '/contact.html'));
 });
-app.use('/tactics', router);
+app.use('/contact', router);
 
-
+/*
 router.get('/offense', function(req, res){
   res.sendFile(path.join(__dirname, '/offense.html'));
 });
