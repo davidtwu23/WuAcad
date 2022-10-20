@@ -8,7 +8,6 @@ const path = require('path')//Include the Path module
 
 const php = require('php')
 // setup php templating engine
-app.set('views', path.join(__dirname, 'templates'))
 app.set('view engine', 'php')
 app.engine('php', php.__express)
 
@@ -44,12 +43,12 @@ router.get('/contact', function(req, res){
 });
 app.use('/contact', router);
 
-/*
+
 router.get('/offense', function(req, res){
   res.sendFile(path.join(__dirname, '/offense.html'));
 });
 app.use('/offense', router);
-*/
+
 
 router.get('/testing', function(req, res) {
   res.sendFile(path.join(__dirname, '/testing.html'));
