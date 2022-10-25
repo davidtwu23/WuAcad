@@ -28,10 +28,10 @@ router.get('/serving', function(req, res) {
 app.use('/serving', router);
 
 
-router.get('/defense', function(req, res) {
-  res.sendFile(path.join(__dirname, '/defense.html'));
+router.get('/blocking', function(req, res) {
+  res.sendFile(path.join(__dirname, '/blocking.html'));
 });
-app.use('/defense', router);
+app.use('/blocking', router);
 
 router.get('/passing', function(req, res) {
   res.sendFile(path.join(__dirname, '/passing.html'));
