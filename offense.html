@@ -75,6 +75,37 @@ body {
 
 <p><b>Trajectory of the Set.</b> The approach for the volleyball spike can also be different depending on the trajectory of the set. When attacking a ball that's set to the outside, the volleyball attacker can approach to hit at an angle coming from outside the court. This volleyball approach at an angle prepares the attacker to effectively hit the ball hard angle or turn and hit the ball down the line.</p>
 
+
+  <h3> Good Examples </h3>
+  <div align="center">
+  <div class="slidecontainer">
+    <p>playback speed: <span id="demo"></span></p>
+    <input type="range" min="-99" max="100" value="1" class="slider" id="myRange" style="margin: 0; width: 400px;">
+  </div>
+
+  <video id="SPK" width="400" controls>
+    <source src="data/videos/Spiking_1.mp4" type="video/mp4">
+  </video>
+<p></p>
+  <label for="SPK-names">Choose a good spiking example: </label>
+  <select name="SPK-names" id="SPK-names" onChange="update()">
+    <option value="data/videos/Spiking_1.mp4">Example 1</option>
+    <option value="data/videos/Spiking_2.mp4">Example 2</option>
+    <option value="data/videos/Spiking_3.mp4">Example 3</option>
+    <option value="data/videos/Spiking_4.mp4">Example 4</option>
+  </select>
+
+  <script>
+    var vid = document.getElementById("SPK");
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    var vnames = document.getElementById("SPK-names");
+  </script>
+<script src="/interactive_video_playback.js"></script>
+  </div>
+
+  <h3> YouTube Video: How to Spike </h3>
+  
   <div align="center">
 <iframe width="465" height="292" src="https://www.youtube.com/embed/FMtUqoxfR50" title="How to Spike a Volleyball (in Slow Motion)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
   
