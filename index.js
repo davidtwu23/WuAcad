@@ -49,6 +49,10 @@ router.get('/offense', function(req, res){
 });
 app.use('/offense', router);
 
+router.get('/course', function(req, res){
+  res.sendFile(path.join(__dirname, '/course.html'));
+});
+app.use('/course', router);
 
 router.get('/testing', function(req, res) {
   res.sendFile(path.join(__dirname, '/testing.html'));
