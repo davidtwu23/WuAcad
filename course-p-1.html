@@ -111,11 +111,14 @@ body {
    <div align="center">
   <iframe width="640" height="360" src="https://www.youtube.com/embed/Nl1fn-YGHCY" title="Erik Shoji passing. Team USA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
-  <h3>Questions</h3>
- 
+
+<h3>Questions</h3>
+
+<div class="bg_gray">
+
 <form>
  <ol>
-<li>
+<li id="Q-1-1">
 <fieldset>
     <legend>What is a pass?</legend>
     <div>
@@ -133,9 +136,8 @@ body {
 </fieldset>
 </li>
 
-<br>
-
-  <li>
+   
+<li id="Q-1-2" style="display: none;">
 <fieldset>
     <legend>What is a dig?</legend>
     <div>
@@ -151,12 +153,21 @@ body {
       <label for="Q-1-2-C">strategy used to send the ball over the net to the opponent in such a manner that ball is not returnable</label>
     </div>
 </fieldset>
- <div>
+</li>
+ </ol>
+
+  <button onclick="preQuestion()">Previous</button> 
+
+<button onclick="nextQuestion()">Next</button> 
+  
+<br><br>
+  
+   <div align="center">
       <button type="submit">Submit</button>
     </div> 
-</li>
-<ol>  
+  
  </form> 
+</div>
   
   <pre id="log"></pre>
 
@@ -180,6 +191,29 @@ form.addEventListener(
   },
   false
 );
+
+function preQuestion(){
+  var x = document.getElementById("Q-1-1");
+  x.value = 1;
+  x.style.display = "list-item";
+  
+var y = document.getElementById("Q-1-2");
+  y.style.display = "none";
+  
+};
+
+  
+function nextQuestion(){
+  var x = document.getElementById("Q-1-1");
+    x.style.display = "none";
+  
+var y = document.getElementById("Q-1-2");
+  y.value = 2;
+  y.style.display = "list-item";
+  
+};
+
+  
 
 </script>
 
