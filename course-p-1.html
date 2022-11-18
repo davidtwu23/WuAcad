@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html>
 
 <head>
@@ -154,6 +154,61 @@ body {
     </div>
 </fieldset>
 </li>
+
+<li id="Q-1-3" style="display: none;">
+<fieldset>
+    <legend>What is not  a dig?</legend>
+    <div>
+      <input type="radio" id="Q-1-3-A" name="Q-1-3" value="A">
+      <label for="Q-1-3-A">a defensive move employed to keep the ball from hitting the floor after an opponent makes a hard downward hit</label>
+    </div>
+    <div>
+      <input type="radio" id="Q-1-3-B" name="Q-1-3" value="B">
+      <label for="Q-1-3-B">the skill used by a player to launch the ball over the net to start a rally</label>
+    </div>
+    <div>
+      <input type="radio" id="Q-1-3-C" name="Q-1-3" value="C">
+      <label for="Q-1-3-C">strategy used to send the ball over the net to the opponent in such a manner that ball is not returnable</label>
+    </div>
+</fieldset>
+</li>
+
+   <li id="Q-1-4" style="display: none;">
+<fieldset>
+    <legend>How can you make a good pass?</legend>
+    <div>
+      <input type="radio" id="Q-1-4-A" name="Q-1-4" value="A">
+      <label for="Q-1-4-A">run quicky to the ball</label>
+    </div>
+    <div>
+      <input type="radio" id="Q-1-4-B" name="Q-1-4" value="B">
+      <label for="Q-1-4-B">estimate the landing of the ball in advance</label>
+    </div>
+    <div>
+      <input type="radio" id="Q-1-4-C" name="Q-1-4" value="C">
+      <label for="Q-1-4-C">keep your body frame steady</label>
+    </div>
+</fieldset>
+</li>
+
+   <li id="Q-1-5" style="display: none;">
+<fieldset>
+    <legend>What is the most important thing in digging?</legend>
+    <div>
+      <input type="radio" id="Q-1-5-A" name="Q-1-5" value="A">
+      <label for="Q-1-5-A">quick body movement</label>
+    </div>
+    <div>
+      <input type="radio" id="Q-1-5-B" name="Q-1-5" value="B">
+      <label for="Q-1-5-B">keep the body frame so as to contact the body at the right position</label>
+    </div>
+    <div>
+      <input type="radio" id="Q-1-5-C" name="Q-1-5" value="C">
+      <label for="Q-1-5-C">strategy used to send the ball over the net to the opponent in such a manner that ball is not returnable</label>
+    </div>
+</fieldset>
+</li>
+   
  </ol>
 
   <button onclick="preQuestion()">Previous</button> 
@@ -175,6 +230,10 @@ body {
 </div>
 
 <script>
+const num_Q = 5;
+const idx_day = 1;
+var cur_Q = 1;
+  
 const form = document.querySelector("form");
 const log = document.querySelector("#log");
 
@@ -193,28 +252,42 @@ form.addEventListener(
 );
 
 function preQuestion(){
-  var x = document.getElementById("Q-1-1");
-  x.value = 1;
-  x.style.display = "list-item";
-  
-var y = document.getElementById("Q-1-2");
-  y.style.display = "none";
-  
+  hideAllQuestions(idx_day);
+  if(cur_Q > 1){
+    showQuestion(idx_day, cur_Q-1 );
+    cur_Q --;
+  }
+  else{
+    showQuestion(idx_day, 1); 
+  }
 };
 
   
 function nextQuestion(){
-  var x = document.getElementById("Q-1-1");
-    x.style.display = "none";
-  
-var y = document.getElementById("Q-1-2");
-  y.value = 2;
-  y.style.display = "list-item";
-  
+  hideAllQuestions(idx_day);
+  if(cur_Q < num_Q){
+    showQuestion(idx_day, cur_Q +1 );
+    cur_Q ++;
+  }
+  else{
+    showQuestion(idx_day, num_Q); 
+  }
 };
 
-  
+function showQuestion(index_day, index_Q){
+  var y = document.getElementById("Q-" + index_day +  "-" + index_Q);
+    y.value = index_Q;
+    y.style.display = "list-item";   
+}; 
 
+function hideAllQuestions(index_day){
+  for (let i=1; i<=num_Q; i++){
+    var x = document.getElementById("Q-"+ index_day + "-" + i);
+    x.style.display = "none";
+  }
+};  
+
+  
 </script>
 
 
