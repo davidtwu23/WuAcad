@@ -79,7 +79,16 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-  
+
+/* style for score table */
+  table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #e0e0e0;
+  text-align: center;
+} 
 </style>
 
 <body>
@@ -114,6 +123,27 @@ body {
 
 <h3>Questions</h3>
 
+<div>
+  <table id="scoreTable-1" style="width:100%">
+    <tr>
+      <td> Q1</td>
+      <td> Q2</td>
+      <td> Q3</td>
+      <td> Q4</td>
+      <td> Q5</td>
+    </tr>
+    <tr>
+      <td> &nbsp </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+  
+<br>
+  
 <div class="bg_gray">
 
 <form>
@@ -233,9 +263,13 @@ body {
 const num_Q = 5;
 const idx_day = 1;
 var cur_Q = 1;
+const answerKeys = ["B", "A", "C", "B", "B"];
+//const answers = ["B", "C", "C", "A"];
+var answers=[];
   
 const form = document.querySelector("form");
 const log = document.querySelector("#log");
+const tableName = "scoreTable-1";
 
 form.addEventListener(
   "submit",
@@ -244,12 +278,36 @@ form.addEventListener(
     let output = "Your choices:\r ";
     for (const entry of data) {
       output = `${output}${entry[0]} is  ${entry[1]}\r`;
+      // get index
+      var k = parseInt(entry[0].slice(-1),10) - 1;
+      answers[k] = entry[1];
     }
     log.innerText = output;
+    updateScores(tableName);
     event.preventDefault();
   },
   false
 );
+
+
+  
+function updateScores(tableName){
+    // update score
+    var scores = document.getElementById(tableName).rows[1].cells;
+    for(let i=0;i<num_Q;i++){
+      if(answers[i]){
+        if(answers[i] == answerKeys[i] ){
+          scores[i].innerHTML = "&#10004;";
+        }
+        else{
+          scores[i].innerHTML = "&#10008;";
+        }
+      }
+      else{
+        scores[i].innerHTML = "";
+      }
+    }
+} 
 
 function preQuestion(){
   hideAllQuestions(idx_day);
@@ -287,6 +345,7 @@ function hideAllQuestions(index_day){
   }
 };  
 
+  
   
 </script>
 
