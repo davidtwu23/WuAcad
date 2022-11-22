@@ -123,6 +123,11 @@ th, td {
 
 <h3>Questions</h3>
 
+<script>
+  var progress=[0,0,0,0,0]; // each element is the progress for each day
+</script>
+  
+
 <div>
   <table id="scoreTable-1" style="width:100%">
     <tr>
@@ -281,16 +286,18 @@ form.addEventListener(
       // get index
       var k = parseInt(entry[0].slice(-1),10) - 1;
       answers[k] = entry[1];
-    }
-    log.innerText = output;
+    }   
     updateScores(tableName);
+    updateProgress(tableName,1); // update first day progress
+    output = `${output}Progress for Day-1 is: ${progress[0]}%\r`; 
+    log.innerText = output;
     event.preventDefault();
   },
   false
 );
 
 
-// update score table
+// update score table and progress
 function updateScores(tableName){
     // update score
     var scores = document.getElementById(tableName).rows[1].cells;
@@ -308,6 +315,20 @@ function updateScores(tableName){
       }
     }
 } 
+
+function updateProgress(tableName,idx_day){
+    var scores = document.getElementById(tableName).rows[1].cells;
+    var count = 0;
+    for(let i=0;i<num_Q;i++){
+      if(answers[i]){
+        if(answers[i] == answerKeys[i] ){
+          count ++;
+        }
+      }
+    }
+    progress[idx_day -1] = count/num_Q*100;
+}
+  
 
 // show previous question
 function preQuestion(){
@@ -347,7 +368,6 @@ function hideAllQuestions(){
     x.style.display = "none";
   }
 };  
-
   
   
 </script>
