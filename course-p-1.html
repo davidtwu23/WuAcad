@@ -93,7 +93,16 @@ th, td {
 
 <body>
 
-
+<script src="/cookie.js"></script>
+<script>
+  // handling progress
+  var progress;
+  progress = recoverArrayFromCookie("progressCookie");
+  if(progress.length == 0){
+    progress=[0,0,0,0,0]; 
+  }
+  
+</script>
   
 <div class="sidenav">
   <div class="center">
@@ -280,7 +289,7 @@ th, td {
 </div>
 
 <script>
-var progress=[0,0,0,0,0];  // init progress
+const num_days = 5;
 const num_Q = 5;
 var cur_Q = 1;
 const answerKeys = ["B", "A", "C", "B", "B"];
@@ -290,6 +299,7 @@ var answers=[];
 const form = document.querySelector("form");
 const log = document.querySelector("#log");
 const tableName = "scoreTable-1";
+
 </script>
 
 <script src="/interactive_course.js"></script>

@@ -1,9 +1,7 @@
 // this javascript is used for interactive courses
 
-// global variables
-const num_days = 5;
-//var progress; // each element is the progress for each day
-
+//init progress bar first
+updateProgressBar();
 
 // receive the answers from user -> answers[]
 form.addEventListener(
@@ -19,6 +17,8 @@ form.addEventListener(
     }   
     updateScores(tableName);
     updateProgress(tableName,1); // update first day progress
+    // update cookie
+    updateArrayCookie("progressCookie", progress);
     updateProgressBar();
     output = `${output}Progress for Day-1 is: ${progress[0]}%\r`; 
     log.innerText = output;
