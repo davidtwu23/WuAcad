@@ -16,11 +16,11 @@ form.addEventListener(
       answers[k] = entry[1];
     }   
     updateScores(tableName);
-    updateProgress(tableName,1); // update first day progress
+    updateProgress(tableName,idx_day); // update  day progress
     // update cookie
     updateArrayCookie("progressCookie", progress);
     updateProgressBar();
-    output = `${output}Progress for Day-1 is: ${progress[0]}%\r`; 
+    output = `${output}Progress for Day-` + idx_day + ` is: ${progress[idx_day-1]}%\r`; 
     log.innerText = output;
     event.preventDefault();
   },
