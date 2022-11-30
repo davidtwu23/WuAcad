@@ -32,7 +32,7 @@ function updateArrayCookie(cookieName, carray){
 
 
 function clearCookie(cname){
-  // TODO
+  document.cookie = cname + "=";
 }
 
 // set string cookie
