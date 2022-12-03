@@ -69,6 +69,16 @@ router.get('/course-p-3', function(req, res){
 });
 app.use('/course-p-3', router);
 
+router.get('/course-p-4', function(req, res){
+  res.sendFile(path.join(__dirname, '/course-p-4.html'));
+});
+app.use('/course-p-4', router);
+
+router.get('/course-p-5', function(req, res){
+  res.sendFile(path.join(__dirname, '/course-p-5.html'));
+});
+app.use('/course-p-5', router);
+
 
 router.get('/testing', function(req, res) {
   res.sendFile(path.join(__dirname, '/testing.html'));
