@@ -23,6 +23,14 @@ body {
         margin: 4px 2px;
         cursor: pointer;
       }
+
+  .error {color: #FF0000;}
+  .formDiv{
+    margin: auto;
+    width: 90%;
+    /*border: 3px solid green;*/
+    padding: 10px;
+  }
 </style>
 
 <body>
@@ -66,11 +74,14 @@ body {
 <br>
   
 <div class="formDiv">
+<span class="error">* required field</span>
 <form id="form2" method="get" action="/action_page.php">   
   <label for="fname">First name:</label>
   <input type="text" id="fname" name="fname" value="">
+  <span class="error">* </span>
   <label for="lname">Last name:</label>
   <input type="text" id="lname" name="lname" value="">
+  <span class="error">* </span>
 </form>
   </div>
 
@@ -93,29 +104,33 @@ function startCourse(){
   var lname = x.elements[1].value;
   var name = fname + " " + lname;
   log.innerText = name;
+
+  if(fname!="" && lname!=""){
   
-  // save user information to cookie
-  let go = false;
-  let user = getCookie("username");
-  if (user != name){  
-    clearCookie("username");
-    setCookie("username", name, 10);
-    go = true;
-  }
-  else{
-    if(confirm("Hi, "+fname +"! Nice to see you again. Do you want to do the course again?")==true){
+    // save user information to cookie
+    let go = false;
+    let user = getCookie("username");
+    if (user != name){  
+      clearCookie("username");
+      setCookie("username", name, 10);
       clearCookie("progressCookie");
       go = true;
     }
     else{
-      log.innerText = recoverArrayFromCookie("progressCookie");
-      go = false;
+      if(confirm("Hi, "+fname +"! Nice to see you again. Do you want to do the course again?")==true){
+        clearCookie("progressCookie");
+        go = true;
+      }
+      else{
+        log.innerText = recoverArrayFromCookie("progressCookie");
+        go = false;
+      }
     }
-  }
   
-  // load the course page
-  if(go){
-    window.location.href='/course-p-1';
+    // load the course page
+    if(go){
+      window.location.href='/course-p-1';
+    }
   }
 }
    
