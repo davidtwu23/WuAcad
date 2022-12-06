@@ -101,11 +101,14 @@ th, td {
   if(progress.length == 0){
     progress=[0,0,0,0,0]; 
   }
-  
 </script>
   
 <div class="sidenav">
+  <br>
+  <p style="color:#d0d0d0;" id="user-name"></p> <br><br>
+
   <div class="center">
+    
   <a href="/course-p-1"> Day 1</a>
  <progress id="progress-day-1" value="0" max="100" style="width:90%">0%</progress>
   </div>
@@ -133,6 +136,11 @@ th, td {
 
   <a href="/course">Quit Course</a>
 </div>
+
+ <script>
+  var UserName = getCookie("username");
+   document.getElementById("user-name").innerHTML = UserName;
+ </script>
 
   <div class="center bg_lightgray">
     
