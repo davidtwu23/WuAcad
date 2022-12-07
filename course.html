@@ -58,6 +58,7 @@ body {
    
   <h1>Course</h1>
 
+  <div>
   <p>We have a five-day course on various volleyball passing. </p>
   <ul>
     <li>Day 1: Passing</li>
@@ -65,9 +66,8 @@ body {
     <li>Day 3: Passing Angles</li>
     <li>Day 4: Overhead Passing</li>
     <li>Day 5: Passing Strategy</li>
-    
   </ul>
-
+  </div>
  <br>
 
   <p><i>Please type your name to start the course. </i></p>
@@ -83,14 +83,13 @@ body {
   <input type="text" id="lname" name="lname" value="">
   <span class="error">* </span>
 </form>
+<br>
+  <button onclick="startCourse()">
+    Click Here to Start the Course!
+  </button>
+  
   </div>
-
-  <br>
-
-    <button onclick="startCourse()">
-      Click Here to Start the Course!
-    </button>
-
+  
 <pre id="log"></pre>
   
 <script src="/cookie.js"></script>
