@@ -107,24 +107,32 @@ function startCourse(){
   log.innerText = name;
 
   if(fname!="" && lname!=""){
-    queryByUsername('/action_query', {"username": name}).then((data) => {
-      if (data.length == 0){
-        clearCookie("username");
-        setCookie("username", name, 10);
+  
+    // save user information to cookie
+    let user = getCookie("username");
+    if (user != name){  
+      clearCookie("username");
+      setCookie("username", name, 10);
+      clearCookie("progressCookie");
+    }
+    else{
+      if(confirm("Hi, "+fname +"! Nice to see you again. Do you want re-do the course? (OK to re-do, Cancel to continue)")==true){
         clearCookie("progressCookie");
       }
       else{
-        if(confirm("Hi, "+fname +"! Nice to see you again. Do you want re-do the course? (OK to re-do, Cancel to continue)")==true){
-        clearCookie("progressCookie");
-        }     
-        else{
-          setArrayCookie("progressCookie",data); 
-        }
+        log.innerText = recoverArrayFromCookie("progressCookie");
       }
-      
-      log.innerText = recoverArrayFromCookie("progressCookie"); 
-      // load the course page
-      window.location.href='/course-p-1';});
+    }
+
+    // test 
+    queryByUsername('/action_query', {"username": "David Wu"}).then((data) => {log.innerText = data; 
+                setArrayCookie("progressCookie",data); 
+                    window.location.href='/course-p-1';});
+
+
+  
+    // load the course page
+    //window.location.href='/course-p-1';
   }
 }
    

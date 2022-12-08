@@ -2,9 +2,14 @@ const fs = require('fs');
 const XLSX = require('xlsx');
 
 const express = require('express');//Set up the express module
+const bodyParser = require('body-parser');
 const app = express();
 const router = express.Router();
 const path = require('path')//Include the Path module
+
+app.use(bodyParser.json());
+app.use(express.json());
+
 
 const php = require('php')
 // setup php templating engine
@@ -106,6 +111,32 @@ app.get('/action_page.php', function(req, res) {
   //JSON2Excel([data]); // XLXS genertes corrupted file
   res.sendFile(path.join(__dirname, '/action.html'));
 });
+
+// handling search query from client
+app.post('/action_query', function(req,res) {
+  // step 1: receive the query from the client
+  const username = req.body.username;
+  console.log(username);
+  
+  // step 2: open user-progress file
+  var userDB = JSON.parse(fs.readFileSync('./user_progress.json').toString());
+  //console.log(userDB.users;
+  
+  // step 3:search user database on the server
+  var progress = [];
+  for(let i=0;i<userDB.users.length;i++){
+    if(userDB.users[i].username == username){
+      progress = userDB.users[i].progress;
+      break;
+    }
+  }
+  console.log(progress);
+  
+  // step 4: response
+  data = JSON.stringify(progress);
+  res.send(data);
+});
+
 
 
 //404 Error
