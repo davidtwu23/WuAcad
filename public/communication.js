@@ -1,12 +1,11 @@
 
-
-// query by username for progress
+// client post data to server 
 // client sent "data" to server
 // client receives "response" from ther server
 // both "data" and "response" are json data
 // example: url = /action_query
 //
-async function queryByUsername(url = '', data = {}) {
+async function postData(url = '', data = {}) {
   // Default options are marked with *
   const response = await fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.

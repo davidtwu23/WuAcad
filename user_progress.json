@@ -1,5 +1,1 @@
-{"users": [
-  {"username":"David Wu","progress":[100,50,0,0,0]},
-  {"username":"John Smith","progress":[80,80,20,0,0]}
-  ]
-}
+{"users":[{"username":"David Wu","progress":[40,50,20,40,20]},{"username":"John Smith","progress":[80,80,20,20,0]},{"username":"John Wu","progress":[40,20,20,20,20]}]}

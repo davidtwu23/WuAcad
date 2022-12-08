@@ -107,15 +107,17 @@ function startCourse(){
   log.innerText = name;
 
   if(fname!="" && lname!=""){
-    queryByUsername('/action_query', {"username": name}).then((data) => {
+    postData('/action_query', {"username": name}).then((data) => {
+      clearCookie("username");
+      setCookie("username", name, 10);
       if (data.length == 0){
-        clearCookie("username");
-        setCookie("username", name, 10);
         clearCookie("progressCookie");
+        setArrayCookie("progressCookie",[0,0,0,0,0]); 
       }
       else{
         if(confirm("Hi, "+fname +"! Nice to see you again. Do you want re-do the course? (OK to re-do, Cancel to continue)")==true){
         clearCookie("progressCookie");
+        setArrayCookie("progressCookie",[0,0,0,0,0]);   
         }     
         else{
           setArrayCookie("progressCookie",data); 
@@ -124,7 +126,8 @@ function startCourse(){
       
       log.innerText = recoverArrayFromCookie("progressCookie"); 
       // load the course page
-      window.location.href='/course-p-1';});
+      window.location.href='/course-p-1';
+    });
   }
 }
    

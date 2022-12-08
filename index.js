@@ -137,6 +137,42 @@ app.post('/action_query', function(req,res) {
   res.send(data);
 });
 
+// handling search query from client
+app.post('/action_updateDB', function(req,res) {
+  // step 1: receive the query from the client
+  const username = req.body.username;
+  const progress = req.body.progress;
+  console.log(username);
+  
+  // step 2: open user-progress file
+  var userDB = JSON.parse(fs.readFileSync('./user_progress.json').toString());
+  //console.log(userDB.users;
+  
+  // step 3:search user database on the server
+  var found = false;
+  for(let i=0;i<userDB.users.length;i++){
+    if(userDB.users[i].username == username){
+      found = true;
+      userDB.users[i].progress = progress;
+      break;
+    }
+  }
+  if(!found){
+    userDB.users.push({"username":username,"progress":progress});
+  }
+  console.log(userDB);
+  
+  // step 4: save file
+  fs.writeFile('user_progress.json', 
+               JSON.stringify(userDB),
+               (error) => {
+                 if (error) {
+                   throw error;
+                 }
+               });
+
+  res.send(JSON.stringify(found));
+});
 
 
 //404 Error
