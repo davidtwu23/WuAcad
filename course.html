@@ -101,8 +101,8 @@ const log = document.querySelector("#log");
 function startCourse(){
   // get user information
   var x = document.getElementById("form2");
-  var fname = x.elements[0].value;
-  var lname = x.elements[1].value;
+  var fname = x.elements[0].value.trim();
+  var lname = x.elements[1].value.trim();
   var name = fname + " " + lname;
   log.innerText = name;
 
